@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Colors and fonts shared across the site. */
+:root {
+  color-scheme: light;
+  font-family: 'DM Sans', sans-serif;
+  color: #20201e;
+  background: #f5f3ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --paper: #f5f3ed;
+  --surface: #eeece5;
+  --surface-raised: #e9e7df;
+  --header-bg: rgba(245,243,237,.94);
+  --ink: #20201e;
+  --muted: #77766f;
+  --line: #dedbd2;
+  --orange: #f05b35;
+  --blue: #3248d4;
+  --lime: #d7f36a;
+  --display: 'Space Grotesk', sans-serif;
+  --mono: 'DM Mono', monospace;
+  --page-gutter: clamp(22px, 6vw, 88px);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-card: 0 14px 36px rgba(32,32,30,.08);
+}
+
+/* The same components use these colors when dark mode is enabled. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #171715;
+  --surface: #1e1e1a;
+  --surface-raised: #25241f;
+  --header-bg: rgba(23,23,21,.94);
+  --ink: #f2efe7;
+  --muted: #b6b2a7;
+  --line: #403e37;
+  --orange: #ff805b;
+  --blue: #4f5bd5;
+  --shadow-card: 0 14px 36px rgba(0,0,0,.2);
+}
+
+/* Base page styles. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  transition: background-color .25s ease, color .25s ease;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img, svg {
+  display: block;
+}
+
+::selection {
+  color: var(--paper);
+  background: var(--blue);
+}
+
+.page-shell {
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  overflow: clip;
+}
+
+/* Shared section spacing and headings. */
+section {
+  padding: clamp(76px, 9vw, 132px) var(--page-gutter);
+}
+
+.eyebrow,
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font: 500 12px / 1.5 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before,
+.section-label::before {
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  content: '';
+}
+
+.section-title {
+  margin: 18px 0 0;
+  font: 600 clamp(44px, 7vw, 92px) / .93 var(--display);
+  letter-spacing: -.075em;
+}
+
+/* Scroll-in animation used by page sections. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-d1 {
+  transition-delay: .1s;
+}
+
+.reveal-d2 {
+  transition-delay: .2s;
+}
+
+.reveal-d3 {
+  transition-delay: .3s;
+}
+
+.reveal-d4 {
+  transition-delay: .4s;
+}
+
+/* Repeating skills ticker. */
+.marquee-wrap {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: var(--lime);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 16px 25px;
+  font: 600 14px var(--display);
+  white-space: nowrap;
+}
+
+.marquee-item em {
+  color: var(--blue);
+  font-style: normal;
+}
+
+.marquee-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+@keyframes marqueeScroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Keyboard focus and motion accessibility. */
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 74px;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
