@@ -1,4 +1,4 @@
-# Kishan Sah - Portfolio
+# Kishan - Portfolio
 
 A responsive React portfolio for a designer and frontend developer, built with Vite. The visual direction pairs an editorial paper-toned canvas with vivid blue, orange, and lime accents. Project previews are composed in CSS, so the portfolio does not rely on missing screenshots or external image assets.
 

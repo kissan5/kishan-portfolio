@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => (
   <footer className="site-footer">
-    <a className="footer-logo" href="#hero" aria-label="Kishan Sah, home">
+    <a className="footer-logo" href="#hero" aria-label="Kishan, home">
       <img src="/logo-mark.png" alt="" aria-hidden="true" />
       issan<span>.</span>
     </a>

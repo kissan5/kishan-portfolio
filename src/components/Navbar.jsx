@@ -8,7 +8,7 @@ const Navbar = ({ theme, onThemeToggle }) => {
   return (
     <header className="site-header">
       <nav className="nav-bar" aria-label="Main navigation">
-        <a href="#hero" className="nav-logo" onClick={closeMenu} aria-label="Kishan Sah, home">
+        <a href="#hero" className="nav-logo" onClick={closeMenu} aria-label="Kishan, home">
           <img src="/logo-mark.png" alt="" aria-hidden="true" />
           issan<span>.</span>
         </a>
